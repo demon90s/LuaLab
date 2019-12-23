@@ -1,6 +1,7 @@
 -- 使用 pairs 迭代器遍历表
 -- 元素出现的顺序不能确定, 这是底层实现机制决定的
 t = {10, print, x = 12, k = "hi"}
+t["wow"] = true
 for k,v in pairs(t) do
     print(k, v)
 end
