@@ -1,0 +1,1 @@
+io.write ("sin(0) = ", l_sin(0), '\n')
