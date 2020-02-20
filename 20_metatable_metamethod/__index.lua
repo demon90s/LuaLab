@@ -14,3 +14,10 @@ mt.__index = win_prototype
 -- test below
 local w = win_new({x = 10, y = 20})
 print(w.width, w.height)    --> 100, 100 (w不存在width字段,但其元表存在__index,就从__index绑定的表去查width字段)
+
+local w2 = win_new({})
+w2.width = 200
+w2.height = 200
+
+print(w2.width, w2.height)  --> 200, 200
+print(w.width, w.height)    --> 100, 100 元表是独立的

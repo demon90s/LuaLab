@@ -16,10 +16,11 @@ static const struct luaL_Reg cfunc[] = {
 };
 
 int luaopen_cfunc(lua_State *L) {
-    luaL_newlib(L, cfunc);
-    return 1;
+    luaL_newlib(L, cfunc); // 创建一个表
+    return 1;   // 把表返回给Lua(解释器)
 }
 
+// 实现
 int l_sin(lua_State *L)
 {
     //double d = lua_tonumber(L, 1); // 获取参数
