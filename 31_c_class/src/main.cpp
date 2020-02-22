@@ -1,6 +1,7 @@
 #include "lua.hpp"
+#include <iostream>
 
-int main()
+int main(int argc, char *argv[])
 {
     const char *lua_file = "../src/main.lua";
 
@@ -13,4 +14,6 @@ int main()
     }
 
     lua_close(L);
+
+	std::cin.get();
 }

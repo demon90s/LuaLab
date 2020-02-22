@@ -1,5 +1,4 @@
-# HappyLearning
-HelloWorld is the best program I've ever seen.
+# LuaLab
 
 Powered by lua5.3.5
 

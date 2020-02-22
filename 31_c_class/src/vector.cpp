@@ -1,4 +1,4 @@
-#include "lua.hpp"
+#include "vector.hpp"
 
 #include <vector>
 #include <cstdlib>
@@ -16,7 +16,7 @@ public:
 
 // 创建userdata
 // vector.new(sz)
-static int vector_new(lua_State *L)
+int vector_new(lua_State *L)
 {
     luaL_checknumber(L, 1);
     
@@ -36,7 +36,7 @@ static int vector_new(lua_State *L)
 }
 
 // 销毁掉
-static int vector_free(lua_State *L)
+int vector_free(lua_State *L)
 {
     luaL_checktype(L, 1, LUA_TUSERDATA);
 
@@ -49,7 +49,7 @@ static int vector_free(lua_State *L)
 }
 
 // 获取长度
-static int vector_size(lua_State *L)
+int vector_size(lua_State *L)
 {
     luaL_checktype(L, 1, LUA_TUSERDATA);
 
@@ -61,20 +61,19 @@ static int vector_size(lua_State *L)
 }
 
 // 注册成库
-extern "C" {
-    static const struct luaL_Reg vector[] = {
-        { "new", vector_new },
-        { "free", vector_free },
-        { "size", vector_size },
-        { NULL, NULL },
-    };
+static const struct luaL_Reg vector[] = {
+    { "new", vector_new },
+    { "free", vector_free },
+    { "size", vector_size },
+    { NULL, NULL },
+};
 
-    int luaopen_libvector(lua_State *L) {
+int luaopen_libvector(lua_State *L) {
 
-        // 注册一个元表,用来标识这个类型
-        luaL_newmetatable(L, VECTOR_METATABLE);
+    // 注册一个元表,用来标识这个类型
+    luaL_newmetatable(L, VECTOR_METATABLE);
 
-        luaL_newlib(L, vector); // 创建一个表
-        return 1;   // 把表返回给Lua(解释器)
-    }
+    luaL_newlib(L, vector); // 创建一个表
+    return 1;   // 把表返回给Lua(解释器)
 }
+
