@@ -61,11 +61,18 @@ int vector_size(lua_State *L)
 }
 
 // 注册成库
-static const struct luaL_Reg vector[] = {
+
+// 静态函数
+static const struct luaL_Reg vector_f[] = {
     { "new", vector_new },
-    { "free", vector_free },
-    { "size", vector_size },
     { NULL, NULL },
+};
+
+// 成员函数
+static const struct luaL_Reg vector_m[] = {
+	{ "free", vector_free },
+	{ "size", vector_size },
+	{ NULL, NULL },
 };
 
 int luaopen_libvector(lua_State *L) {
@@ -73,7 +80,16 @@ int luaopen_libvector(lua_State *L) {
     // 注册一个元表,用来标识这个类型
     luaL_newmetatable(L, VECTOR_METATABLE);
 
-    luaL_newlib(L, vector); // 创建一个表
+	// 复制元表
+	lua_pushvalue(L, -1);
+
+	// 设置__index
+	lua_setfield(L, -2, "__index");
+
+	// 设置成员函数
+	luaL_setfuncs(L, vector_m, 0);
+
+    luaL_newlib(L, vector_f); // 创建一个表
     return 1;   // 把表返回给Lua(解释器)
 }
 
