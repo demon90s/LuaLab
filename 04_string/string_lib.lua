@@ -2,14 +2,6 @@
 
 local str = "Hello"
 
--- string.len(s) 获取字符串的长度, 等价于 #s
-print(string.len(str))          --> 5
-print(#str)                     --> 5
-
--- string.rep(s, n) 获得一个字符串, 是s重复n次的结果
--- string.rep('a', 2^20) 就获得了一个1MB的字符串, 可用于测试
-print(string.rep("a", 5))       --> aaaaa
-
 -- string.reverse(str) 得到字符串翻转后的副本
 print(string.reverse(str))      --> olleH
 

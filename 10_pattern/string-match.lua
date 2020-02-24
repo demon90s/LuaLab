@@ -1,8 +1,11 @@
 -- string.match(str, pattern)
--- 在　str 中查询到匹配　pattern 的子串，返回它，找不到返回 nil
+-- 在　str 中查询到匹配　pattern 的子串（第一个），返回它，找不到返回 nil
 
-print(string.match("hello world", "hello"))     --> hello
-print(string.match("hello world", "hi"))        --> nil
+local s = string.match("hello world", "hello")
+assert(s == "hello")
+
+s = string.match("hello world", "hi")
+assert(s == nil)
 
 -- 模式，以 % 开头来代表一个模式
 --[[
@@ -22,9 +25,9 @@ print(string.match("hello world", "hi"))        --> nil
     它们对应的大写表示其补集，比如 %A 代表所有非字母的字符
 --]]
 
-s = "Deadline is 30/05/1999, from"
-date = "%d%d/%d%d/%d%d%d%d"
-print(string.match(s, date))        --> 30/05/1999
+local text = "Deadline is 30/05/1999, from"
+s = string.match(text, "%d%d/%d%d/%d%d%d%d")
+assert(s == "30/05/1999")
 
 --[[
     魔法字符: ( ) . % + - * ? [ ] ^ $
@@ -47,10 +50,8 @@ print(string.match(s, date))        --> 30/05/1999
     %a+ 表示一个或多个字母
 --]]
 
--- 查询元音的数量
-text = "I am a programmer."
-_, nvow = string.gsub(text, "[AEIOUaeiou]", "")
-print(nvow)     --> 6
-
 -- 查询一个数字序列
-print(string.match("the number 1298 is even", "%d+"))       --> 1298
+s = string.match("the number 1298 is even", "%d+")
+assert(s == "1298")
+
+print("[TEST] string.match PASS")

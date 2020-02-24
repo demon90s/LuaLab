@@ -14,6 +14,16 @@ page = [[
 ]]
 print(page)
 
+-- 为了避免文本中有]]，可以在[[之间加上若干个=
+page = [===[
+<html>
+<head>
+    <title>[[hello]]</title>
+</head>
+</html>
+]===]
+print(page)
+
 -- 强制类型转换(运行时)
 
 -- 数值 -> 字符串,可以使用 .. 或者 tostring
