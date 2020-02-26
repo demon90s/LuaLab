@@ -8,8 +8,8 @@ function Serializer:Data()
     return self.data
 end
 
-function Serializer:Reset()
-    self.data = ""
+function Serializer:Reset(data)
+    self.data = data or ""
     read_pos = 1
 end
 
