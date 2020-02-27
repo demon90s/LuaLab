@@ -2,3 +2,8 @@
 build/
 build_liblua/
 cfunc.so
+lib/lua.dll
+lib/lua.exp
+lib/lua.ilk
+lib/lua.lib
+lib/lua.pdb
