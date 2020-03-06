@@ -67,7 +67,6 @@ tt = {
 
 function ListToMap(list, ...)
 	if nil == list then
-		ErrorLog("ListToMap list is nil")
 		return nil
 	end
 
@@ -76,7 +75,6 @@ function ListToMap(list, ...)
 	local max_depth = #key_list
 
 	if max_depth <= 0 then
-		ErrorLog("ListToMap max_depth is error")
 		return nil
 	end
 
@@ -99,4 +97,20 @@ function ListToMap(list, ...)
 	end
 
 	return map
+end
+
+-- 深拷贝一个对象
+function DeepCopy(orig)
+    local orig_type = type(orig)
+    local copy
+    if orig_type == 'table' then
+        copy = {}
+        for orig_key, orig_value in next, orig, nil do
+            copy[DeepCopy(orig_key)] = DeepCopy(orig_value)
+        end
+        setmetatable(copy, DeepCopy(getmetatable(orig)))
+    else -- number, string, boolean, etc
+        copy = orig
+    end
+    return copy
 end

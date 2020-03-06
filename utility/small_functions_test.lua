@@ -1,6 +1,6 @@
 require "small_functions"
 
-function test_ListToMap()
+function Test_ListToMap()
 	t = {
 		{id = 916, name = "diwen", age = 28},
 		{id = 919, name = "miemie", age = 3},
@@ -14,6 +14,16 @@ function test_ListToMap()
 		io.write(string.format("%d -> ", k))
 		io.write(string.format("name: %s, age: %d\n", v.name, v.age))
 	end
+end
+
+function Test_DeepCopy()
+	local t1 = { a = 42, b = "hello" }
+
+	local t2 = DeepCopy(t1)
+	t2.a = 100
+
+	assert(t2.a == 100 and t2.b == "hello")
+	assert(t1.a == 42 and t1.b == "hello")
 end
 
 local function main()
@@ -30,6 +40,10 @@ local function main()
 	--print(maximum{10, 20, 15})
 	--print(minimum{10, 20, 15})
 
-	test_ListToMap()
+	--test_ListToMap()
+
+	Test_DeepCopy()
+
+	print("[TEST] small functions PASS")
 end
 main()
