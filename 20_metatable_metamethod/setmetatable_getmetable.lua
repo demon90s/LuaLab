@@ -5,8 +5,12 @@
 ]]
 
 t = {}
-print(getmetatable(t))   --> nil
+assert(getmetatable(t) == nil)
 
 metat = {}
 setmetatable(t, metat)
-print(getmetatable(t), getmetatable(t) == metat)    --> table:xxxx true
+
+assert(type(getmetatable(t)) == "table")
+assert(getmetatable(t) == metat)
+
+print("[TEST] setmetatable getmetatable PASS")

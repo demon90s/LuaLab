@@ -16,16 +16,6 @@ function Test_ListToMap()
 	end
 end
 
-function Test_DeepCopy()
-	local t1 = { a = 42, b = "hello" }
-
-	local t2 = DeepCopy(t1)
-	t2.a = 100
-
-	assert(t2.a == 100 and t2.b == "hello")
-	assert(t1.a == 42 and t1.b == "hello")
-end
-
 local function main()
 	-- test fwrite
 	--fwrite("hello, %d\n", 100)
@@ -41,8 +31,6 @@ local function main()
 	--print(minimum{10, 20, 15})
 
 	--test_ListToMap()
-
-	Test_DeepCopy()
 
 	print("[TEST] small functions PASS")
 end

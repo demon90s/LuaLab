@@ -31,3 +31,7 @@ bc2 = makeButton(2)
 
 bc1.action()
 bc2.action()
+
+assert(bc1 ~= bc2)
+
+print("[TEST] closure PASS")

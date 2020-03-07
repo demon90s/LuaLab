@@ -3,10 +3,11 @@
 a = {p = print}     -- a.p 指向 print 函数
 a.p("Hello")        --> Hello
 
--- 打印出地址, 是一样的
-print(a.p)
-print(print)
+-- 地址是一样的
+assert(a.p == print)
 
 -- 函数构造器 function(x) body end
 local func = function() print("function called") end
-func()
+assert(type(func) == "function")
+
+print("[TEST] PASS")
