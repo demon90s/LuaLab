@@ -10,5 +10,7 @@ function nonils(...)
     return true
 end
 
-print(nonils(2, 3, nil))        --> false
-print(nonils(2, 3))             --> true
+assert(nonils(2, 3, nil) == false)
+assert(nonils(2, 3) == true)
+
+print("[TEST] table.pack PASS")

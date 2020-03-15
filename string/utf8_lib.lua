@@ -7,7 +7,7 @@ print(utf8.len("abc"))      --> 3
 print(utf8.len("ab\x93"))   --> nil 3
 
 -- utf8.codepoint 和 string.byte 一样, 都是把字符串转换成对应的数字
--- 注意, 由于后面位置参数是字节的意思, 需要用 utf.offset 得到第几个字符所处的正确的字节
+-- 注意, 由于后面位置参数是字节的意思, 需要用 utf8.offset 得到第几个字符所处的正确的字节
 local str = "你好呀"
 print(utf8.codepoint(str, utf8.offset(str, 2)))        --> 22909
 -- 解释: offset 获得 str 中第二个 utf8 字符的字节位置, 然后 codepoint 获得此位置对应的数字 
