@@ -35,4 +35,9 @@ assert(tostring(10) == "10")
 s = "\u{3b1}"
 print(s) --> α
 
+-- 长字符串，\z表示忽略掉空白，直到遇到一个非空白字符
+s = "hello\z
+     world"
+assert(s == "helloworld")
+
 print("[TEST] string PASS")
