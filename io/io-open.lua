@@ -5,7 +5,7 @@ print(io.open("non-existent-file", "r"))        --> nil     non-existent-file: N
 
 print(io.open("/etc/passwd", "w"))              --> nil     /etc/passwd: Permission denied  13
 
-local f = assert(io.open("./test_file.lua", "r"))  -- 如果打开失败, 打印错误信息和堆栈
+local f = assert(io.open("./test_file.txt", "r"))  -- 如果打开失败, 打印错误信息和堆栈
 
 -- 读写流, 和 io.read, io.write 的用法一样, 不过需要用 : 操作符
 local t = f:read("a")

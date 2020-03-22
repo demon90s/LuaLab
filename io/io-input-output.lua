@@ -4,8 +4,8 @@
 -- 如果设置失败，会打印错误信息和堆栈
 
 local old_input = io.input()
-io.input("test_file.lua")
-local t = io.input():read("a")
+io.input("test_file.txt")
+local t = io.input():read("a")  --> now, same as io.read("a")
 io.output():write(t)
 
 io.input(old_input)
