@@ -17,12 +17,13 @@ print(c2())     --> 1
 
 -- 下面使用一个表构建了一个闭包
 function makeButton(digit)  -- 对于下面的匿名表, digit 就是一个非局部变量
-    return {
-            name = tostring(digit),
-            action = function()
-                        print("Click button", digit)
-                     end
-        }
+        local t = {
+                name = tostring(digit),
+                action = function()
+                                print("Click button", digit)
+                        end
+                }
+        return t
 end
 
 -- 两个不同的闭包
